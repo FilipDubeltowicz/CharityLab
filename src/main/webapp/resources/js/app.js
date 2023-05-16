@@ -115,6 +115,7 @@ document.addEventListener("DOMContentLoaded", function() {
     init() {
       this.events();
       this.updateForm();
+      this.updateSummary();
     }
 
     /**
@@ -164,9 +165,27 @@ document.addEventListener("DOMContentLoaded", function() {
       this.$step.parentElement.hidden = this.currentStep >= 5;
 
       // TODO: get data from inputs and show them in summary
-    }
 
+      function updateSummary() {
+        // Pobranie danych z formularza
+        var quantity = parseInt(document.querySelector('input[name="quantity"]').value);
+        var category = document.querySelector('input[name="categories"]:checked').getAttribute("data-description");
+        var institution = document.querySelector('input[name="institution"]:checked').getAttribute("data-name");
+        var street = document.querySelector('input[name="street"]').value;
+        var city = document.querySelector('input[name="city"]').value;
+        var zipCode = document.querySelector('input[name="zipCode"]').value;
+        var phone = document.querySelector('input[name="phone"]').value;
+        var pickUpDate = document.querySelector('input[name="pickUpDate"]').value;
+        var pickUpTime = document.querySelector('input[name="pickUpTime"]').value;
+        var pickUpComment = document.querySelector('textarea[name="pickUpComment"]').value;
+
+        // Aktualizacja podsumowania
+        document.querySelector('.summary--text:nth-child(1)').textContent = quantity + " worki ubrań w dobrym stanie dla dzieci";
+        document.querySelector('.summary--text:nth-child(2)').textContent = 'Dla fundacji "' + institution + '" w Warszawie';
+      }
+    }
   }
+
   const form = document.querySelector(".form--steps");
   if (form !== null) {
     new FormSteps(form);
