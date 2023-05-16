@@ -8,14 +8,14 @@
 <section class="stats">
     <div class="container container--85">
         <div class="stats--item">
-            <em>${countDonations}</em>
+            <em>${sumQuantity}</em>
 
             <h3>Oddanych worków</h3>
             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius est beatae, quod accusamus illum
                 tempora!</p>
         </div>
         <div class="stats--item">
-            <em>${sumQuantity}</em>
+            <em>${countDonations}</em>
             <h3>Przekazanych darów</h3>
             <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Laboriosam magnam, sint nihil cupiditate quas
                 quam.</p>
